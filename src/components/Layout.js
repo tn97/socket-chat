@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import { USER_CONNECTED, LOGOUT } from "../Events";
 import LoginForm from "./LoginForm"
 
-const socketUrl = "" // this will be the heroku link, with port 3231
+const socketUrl = "192.168.1.158:3231" // this will be the heroku link, with port 3231
 export default class Layout extends Component {
 
   constructor(props) {
@@ -31,7 +31,7 @@ export default class Layout extends Component {
   // sets the user property in state
   setUser = (user) => {
     const { socket } = this.state;
-    socket.emit(USER_CONNECTED), user;
+    socket.emit(USER_CONNECTED, user);
     this.setState({ user });
   }
 
@@ -39,8 +39,9 @@ export default class Layout extends Component {
   logout = () => {
     const { socket } = this.state;
     socket.emit(LOGOUT);
-    setState({ user:null });
+    this.setState({ user:null });
   }
+
   render() {
     const { title } = this.props;
     const { socket } = this.state;
