@@ -1,0 +1,31 @@
+{
+  "name": "socket-chat",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.9",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-scripts": "2.1.3",
+    "socket.io": "^2.2.0",
+    "uuid": "^3.3.2"
+  },
+  "scripts": {
+    "start": "concurrently 'yarn run react' 'yarn run server'",
+    "react": "react-scripts start",
+    "server": "nodemon src/server/index.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
